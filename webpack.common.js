@@ -1,5 +1,7 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -36,5 +38,10 @@ module.exports = {
         },
       ],
     }),
+    new FaviconsWebpackPlugin({
+      logo: 'src/public/logo/single-logo.png',
+      inject: true,
+    }),
+    new CleanWebpackPlugin(),
   ],
 };
