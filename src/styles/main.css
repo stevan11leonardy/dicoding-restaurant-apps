@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-	font-size: 14px;
+  font-size: 14px;
   position: relative;
 }
 
@@ -76,7 +76,10 @@ nav>a:hover {
   display: none;
 }
 
-main, p {
+main,
+p,
+h1,
+h2 {
   margin: 0;
   padding: 0;
 }
@@ -86,8 +89,8 @@ main {
 }
 
 button:focus {
-	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
-	outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 
 .skip-to-content {
@@ -108,13 +111,13 @@ button:focus {
 }
 
 h1 {
-	padding: 0;
-	margin: 0;
-	color: white;
-	font-size: 40px;
-	text-align: center;
-	margin: auto;
-	z-index: 2;
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin: auto;
+  z-index: 2;
 }
 
 .jumbotron-container {
@@ -122,56 +125,91 @@ h1 {
 }
 
 .overlay {
-	background-color: rgba(0, 0, 0, 0.4);
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 
 h2 {
-	font-size: 20px;
-	font-weight: 600;
-	max-width: fit-content;
+  font-size: 20px;
+  font-weight: 600;
+  max-width: fit-content;
   margin: 1rem auto;
 }
 
 .jumbotron {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   width: 100%;
   min-height: 400px;
   max-height: 400px;
   background-image: url(/images/heros/hero-image_2.jpg);
-	background-size: cover;
-	background-position: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .explore-restaurant {
-	padding: 1rem;
-	width: 100%;
-	overflow: hidden;
-	margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .restaurant-list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   justify-items: center;
-	padding: 1rem 2rem;
+  padding: 1rem 2rem;
+}
+
+.rating-container {
+  color: rgb(55, 177, 39);
+}
+
+.like-button-container {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+
+.like-button,
+.liked-button {
+  padding: .5rem;
+  border: none;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.like-button:hover,
+.liked-button:hover {
+  background-color: #dba355;
+}
+
+.centered {
+  text-align: center;
 }
 
 footer {
-	padding: 1rem;
-	background-color: var(--secondary);
-	color: white;
-	width: 100%;
-	text-align: center;
+  padding: 1rem;
+  background-color: var(--secondary);
+  color: white;
+  width: 100%;
+  text-align: center;
 }
 
 @media screen and (max-width: 980px) {
@@ -188,7 +226,9 @@ footer {
     background-color: var(--primary);
     color: var(--text-secondary);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: .5rem 1rem;
   }
+
   .hamburger-btn {
     justify-self: flex-end;
     display: flex;
@@ -200,8 +240,9 @@ footer {
     border-radius: 50%;
     border: none;
   }
+
   nav {
-		visibility: hidden;
+    visibility: hidden;
     position: fixed;
     top: 0;
     right: 0;
@@ -214,13 +255,15 @@ footer {
     justify-items: flex-start;
     transform: translateX(100%);
     color: white;
-		z-index: 1000;
+    z-index: 1000;
   }
+
   nav[data-hide="false"] {
-		visibility: visible;
+    visibility: visible;
     transform: translateX(0);
     transition-duration: .3s;
   }
+
   nav a {
     padding: 1rem;
   }

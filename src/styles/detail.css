@@ -1,0 +1,37 @@
+
+.detail__container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.detail__image-container {
+  width: 100%;
+  background-color: aqua;
+  max-height: 350px;
+  min-height: 350px;
+  display: flex;
+  position: relative;
+}
+
+.detail__image-container > img {
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.detail__restaurant-name {
+  font-size: 24px;
+  color: black;
+  margin: 0;
+  margin-right: .5rem;
+}
+
+.detail__restaurant-main {
+  display: flex;
+  align-items: baseline;
+}
+
+.detail__restaurant-info {
+  padding: 1rem;
+}

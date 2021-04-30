@@ -1,13 +1,12 @@
-import RestaurantSource from '../../data/restaurantdb-source';
+import FavouriteRestaurantIdb from '../../data/favourite-restaurant-idb';
 import '../templates/jumbotron';
 import '../templates/restaurant-card';
 
-const Home = {
+const Favourite = {
   async render() {
     return `
-      <home-jumbotron></home-jumbotron>
       <section class="explore-restaurant">
-        <h2 tabindex="0">Explore Restaurant</h2>
+        <h2 tabindex="0">Favourite Restaurants</h2>
         <div class="restaurant-list">
         </div>
       </section>
@@ -15,9 +14,15 @@ const Home = {
   },
 
   async afterRender() {
-    const restaurants = await RestaurantSource.list();
+    const restaurants = await FavouriteRestaurantIdb.getAllRestaurants();
 
     const restaurantListElement = document.querySelector('.restaurant-list');
+
+    if (restaurants.length === 0) {
+      document.querySelector('.explore-restaurant').innerHTML += `
+        <p class="centered">No restaurant exist</p>
+      `;
+    }
 
     restaurants.forEach((restaurant) => {
       restaurantListElement.innerHTML += `
@@ -35,4 +40,4 @@ const Home = {
   },
 };
 
-export default Home;
+export default Favourite;

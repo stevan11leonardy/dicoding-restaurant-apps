@@ -90,7 +90,7 @@ class RestaurantCard extends HTMLElement {
           <slot name="location">-</slot>
         </div>
         <div class="card-image">
-          <img src="${CONFIG.BASE_IMAGE_URL}${this.getAttribute('pic')}" alt="${this.getAttribute('name')}-pic"/>
+          <img src="${CONFIG.BASE_IMAGE_URL}medium/${this.getAttribute('pic')}" alt="${this.getAttribute('name')}-pic"/>
         </div>
         <div class="card-body">
           <div class="rating">Rating: <slot name="rating">-</slot></div>
