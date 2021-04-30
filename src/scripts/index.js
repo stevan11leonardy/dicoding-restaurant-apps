@@ -1,39 +1,17 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import data from '../DATA.json';
 import '../styles/main.css';
-import { createCard } from './card';
+import App from './views/app';
 
-const navElement = document.getElementsByTagName("nav")[0];
-const hamburgerBtn = document.querySelector(".hamburger-btn");
-const restaurantListElement = document.querySelector(".restaurant-list")
+const app = new App({
+  hamburgerButton: document.querySelector('.hamburger-btn'),
+  drawer: document.getElementsByTagName('nav')[0],
+  content: document.getElementsByTagName('main')[0],
+});
 
-document.addEventListener("click", handleBodyClick);
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-function handleBodyClick(event) {
-  if (!!navElement.dataset.hide) {
-    navElement.style.transitionDuration = ".3s"; 
-    navElement.setAttribute("hide", true);
-    navElement.style.transitionDuration = "0"; 
-  }
-}
-
-hamburgerBtn.addEventListener("click", handleNavMenu);
-
-function handleNavMenu(event) {
-  event.stopPropagation();
-  navElement.setAttribute("hide", !Boolean(navElement.dataset.hide));
-}
-
-function init() {
-  data.restaurants.forEach(restaurant => {
-    createCard(restaurantListElement, {
-      name: restaurant.name,
-      location: restaurant.city,
-      description: restaurant.description,
-      pic: restaurant.pictureId,
-      rating: restaurant.rating,
-    })
-  })
-}
-
-init();
+window.addEventListener('load', () => {
+  app.renderPage();
+});

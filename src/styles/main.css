@@ -76,9 +76,13 @@ nav>a:hover {
   display: none;
 }
 
-.main, p {
+main, p {
   margin: 0;
   padding: 0;
+}
+
+main {
+  min-height: 100vh;
 }
 
 button:focus {
@@ -118,7 +122,7 @@ h1 {
 }
 
 .overlay {
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.4);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -160,67 +164,6 @@ h2 {
 	gap: 2rem;
   justify-items: center;
 	padding: 1rem 2rem;
-}
-
-.card {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-	width: 100%;
-  max-width: 300px;
-	border-radius: 8px;
-	overflow: hidden;
-	position: relative;
-}
-
-.location {
-	position: absolute;
-	top: 15px;
-	left: 0;
-	background-color: var(--primary);
-	color: white;
-	padding: .5rem 1rem;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-	font-size: 12px;
-}
-
-.card-image {
-	width: 100%;
-	min-height: 150px;
-	max-height: 150px;
-	overflow: hidden;
-}
-
-.card-image > img {
-	width: 100%;
-	object-fit: cover;
-}
-
-.card-body {
-	padding: 1rem;
-	background-color: white;
-	overflow: hidden;
-}
-
-.rating {
-	font-weight: bold;
-	font-size: 12px;
-	margin-bottom: .5rem;
-}
-
-.title {
-	font-weight: bold;
-	font-size: 16px;
-	margin-bottom: .5rem;
-}
-
-.caption {
-	font-size: 12px;
-	max-width: 66ch;
-	text-align: justify;
-	display: -webkit-box;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 footer {
@@ -273,7 +216,7 @@ footer {
     color: white;
 		z-index: 1000;
   }
-  nav[hide="false"] {
+  nav[data-hide="false"] {
 		visibility: visible;
     transform: translateX(0);
     transition-duration: .3s;
