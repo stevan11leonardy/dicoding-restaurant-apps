@@ -1,7 +1,7 @@
 {
   "name": "d-resto-apps",
   "version": "1.0.0",
-  "description": "",
+  "description": "eat today, live another day.",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
@@ -11,6 +11,9 @@
   },
   "keywords": [],
   "author": "Stevan Leonardy <stevan11220@gmail.com>",
+  "repository": {
+    "url": "https://github.com/stevan11leonardy/dicoding-restaurant-apps"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
