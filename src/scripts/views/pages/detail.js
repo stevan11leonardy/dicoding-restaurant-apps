@@ -85,7 +85,7 @@ const Detail = {
 
       ReviewFormInitator.init({
         form: document.querySelector('.add-review-form'),
-        onSuccess: (response) => {
+        onSubmitted: (response) => {
           detailContainer.innerHTML = renderDetailTemplate({
             ...restaurant,
             customerReviews: response,

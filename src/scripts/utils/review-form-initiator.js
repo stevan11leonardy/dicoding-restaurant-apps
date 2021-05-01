@@ -1,8 +1,12 @@
-const ReviewFormInitator = {
-  init({ form }) {
-    this._form = form;
+/* eslint-disable no-alert */
+import RestaurantSource from '../data/restaurantdb-source';
+import UrlParser from '../routes/url-parser';
 
-    this._form.addEventListener('submit', (event) => {
+const ReviewFormInitator = {
+  init({ form, onSubmitted }) {
+    this._onSubmitted = onSubmitted;
+
+    form.addEventListener('submit', (event) => {
       this._handleFormSubmit(event);
     });
   },
@@ -29,14 +33,26 @@ const ReviewFormInitator = {
     button.innerHTML = (value) ? '<fetch-loading></fetch-loading>' : 'Add Review';
   },
 
-  _handleFormSubmit(event) {
+  async _handleFormSubmit(event) {
     event.preventDefault();
     this._disabledSubmitButton(true);
 
-    setTimeout(() => {
-      this._disabledSubmitButton(false);
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+
+    const { error, customerReviews } = (await RestaurantSource.addReview(url.id, {
+      name: this._getValues().reviewerName,
+      review: this._getValues().review,
+    }));
+
+    this._disabledSubmitButton(false);
+
+    if (error) {
+      alert('failed to add review');
+    } else {
+      alert('success to add review');
       this._resetForm();
-    }, 2000);
+      this._onSubmitted(customerReviews);
+    }
   },
 };
 
