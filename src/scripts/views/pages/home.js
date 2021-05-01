@@ -1,4 +1,5 @@
 import RestaurantSource from '../../data/restaurantdb-source';
+import LoadingInitiator from '../../utils/loading-initator';
 import '../templates/jumbotron';
 import '../templates/restaurant-card';
 
@@ -15,12 +16,25 @@ const Home = {
   },
 
   async afterRender() {
-    const restaurants = await RestaurantSource.list();
+    const exploreRestaurantElement = document.querySelector('.explore-restaurant');
+
+    const loading = LoadingInitiator.init({
+      container: exploreRestaurantElement,
+    });
+
+    const { restaurants, error, message } = await RestaurantSource.list();
 
     const restaurantListElement = document.querySelector('.restaurant-list');
 
-    restaurants.forEach((restaurant) => {
-      restaurantListElement.innerHTML += `
+    await loading._hide();
+
+    if (error) {
+      exploreRestaurantElement.innerHTML = `
+        <error-fetch message="${message}"></error-fetch>
+      `;
+    } else {
+      restaurants.forEach((restaurant) => {
+        restaurantListElement.innerHTML += `
         <restaurant-card
           data-id="${restaurant.id}"
           name="${restaurant.name}"
@@ -31,7 +45,8 @@ const Home = {
           <span slot="description">${restaurant.description}</span>
         </restaurant-card>
       `;
-    });
+      });
+    }
   },
 };
 

@@ -204,6 +204,65 @@ h2 {
   text-align: center;
 }
 
+.error-container {
+  height: calc(50vh - 60px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.error-message {
+  padding: 1rem;
+  font-size: 24px;
+}
+
+.error-message,
+.error-message-caption {
+  text-align: center;
+}
+
+.error-message-caption {
+  color: grey;
+  padding: 0 1rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.add-review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control>label {
+  margin-bottom: .35rem;
+}
+
+.add-review-button {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 1rem;
+}
+
+input[type="text"],
+textarea {
+  padding: .75rem 1rem;
+  font-size: 14px;
+  font-family: inherit;
+  margin-bottom: .75rem;
+}
+
 footer {
   padding: 1rem;
   background-color: var(--secondary);
@@ -276,5 +335,10 @@ footer {
   .restaurant-list {
     grid-template-columns: 1fr;
     gap: 2rem 1rem;
+  }
+
+  .error-message,
+  .error-message-caption {
+    text-align: left;
   }
 }

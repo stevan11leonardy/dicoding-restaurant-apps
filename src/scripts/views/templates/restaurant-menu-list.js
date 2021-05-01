@@ -32,13 +32,13 @@ class RestaurantMenuList extends HTMLElement {
       <p>
       <ul class="food-menus">
         <slot name="foods">
-          <p tabindex="0">No Menu Exist</p>
+          <li tabindex="0">No Menu Exist</li>
         </slot>
       </ul>
       <p class="menu-title" tabindex="0">Drinks<p>
       <ul class="drink-menus">
         <slot name="drinks">
-          <p tabindex="0">No Menu Exist</p>
+          <li tabindex="0">No Menu Exist</li>
         </slot>
       </ul>
     `;
