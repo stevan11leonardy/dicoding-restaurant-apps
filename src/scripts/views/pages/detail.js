@@ -32,6 +32,7 @@ const renderDetailTemplate = (restaurant) => `
       src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}" 
       alt="${restaurant.name}"
       tabindex="0"
+      crossorigin="anonymous"
     />
     <div
       class="like-button-container"

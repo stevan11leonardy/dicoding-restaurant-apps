@@ -41,7 +41,7 @@ module.exports = {
       ],
     }),
     new FaviconsWebpackPlugin({
-      logo: 'src/public/logo/single-logo.png',
+      logo: path.resolve(__dirname, 'src/public/logo/single-logo.png'),
       inject: true,
     }),
     new CleanWebpackPlugin(),
