@@ -2,7 +2,7 @@ class RestaurantMenuList extends HTMLElement {
   connectedCallback() {
     const restaurantMenuListTemplate = `
       <style>
-        .food-menus, .drink-menus {
+        .food-menus, .drink-menus, .categories-menus {
           list-style: none;
           margin: 0;
           padding: .5rem 0;
@@ -27,6 +27,14 @@ class RestaurantMenuList extends HTMLElement {
         }
       </style>
       <p class="menus-title" tabindex="0">Menus:<p>
+      <p class="menu-title" tabindex="0">
+        Categories
+      <p>
+      <ul class="categories-menus">
+        <slot name="categories">
+          <li tabindex="0">No Category Exist</li>
+        </slot>
+      </ul>
       <p class="menu-title" tabindex="0">
         Foods
       <p>

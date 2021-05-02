@@ -1,6 +1,6 @@
-import '../templates/restaurant-review-list';
-import '../templates/restaurant-review-item';
 import '../templates/restaurant-review-input';
+import '../templates/restaurant-review-item';
+import '../templates/restaurant-review-list';
 import '../templates/restaurant-menu-list';
 import '../templates/restaurant-menu-item';
 import '../templates/restaurant-rating';
@@ -46,6 +46,7 @@ const renderDetailTemplate = (restaurant) => `
     </div>
     <p tabindex="0" class="detail__restaurant-address">${restaurant.address}</p>
     <restaurant-menu-list>
+      ${renderMenuTemplate(restaurant, 'categories')}
       ${renderMenuTemplate(restaurant.menus, 'foods')}
       ${renderMenuTemplate(restaurant.menus, 'drinks')}
     </restaurant-menu-list>

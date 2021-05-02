@@ -1,6 +1,6 @@
 const LikeButton = `
   <button aria-label="like this restaurant" class="like-button">
-    <i class="fa fa-heart-o" aria-hidden="true"></i>
+    <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
