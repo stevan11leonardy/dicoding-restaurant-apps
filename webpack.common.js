@@ -74,7 +74,7 @@ module.exports = {
         {
           src: path.resolve('src/public/logo/single-logo.png'),
           size: '1024x1024',
-          purpose: 'maskable',
+          purpose: 'any maskable',
         },
       ],
     }),
