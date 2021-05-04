@@ -1,3 +1,5 @@
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import routes from '../routes';
 import UrlParser from '../routes/url-parser';
 import DrawerHelper from '../utils/drawer-helper';

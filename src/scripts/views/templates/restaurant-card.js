@@ -31,12 +31,18 @@ class RestaurantCard extends HTMLElement {
           width: 100%;
           min-height: 150px;
           max-height: 150px;
+          background-color: #e7c1c1;
           overflow: hidden;
+          display: flex;
+          background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+          background-size: 600px;
+          animation: shine-avatar 1.6s infinite linear;
         }
 
         .card-image > img {
           width: 100%;
           object-fit: cover;
+          object-position: center;
         }
 
         .card-body {
@@ -84,13 +90,22 @@ class RestaurantCard extends HTMLElement {
           background-color: #f39c61;
           transition: .3s ease;
         }
+
+        @keyframes shine-avatar {
+          0% {
+            background-position: calc(-120px + 52px + 16px);
+          }          
+          100% {
+            background-position: calc(190px + 52px + 16px);
+          }
+        }
       </style>
       <div class="card">
         <div class="location">
           <slot name="location">-</slot>
         </div>
         <div class="card-image">
-          <img src="${CONFIG.BASE_IMAGE_URL}medium/${this.getAttribute('pic')}" crossorigin="anonymous" alt="${this.getAttribute('name')}-pic"/>
+          <img loading="lazy" src="${CONFIG.BASE_IMAGE_URL}small/${this.getAttribute('pic')}" crossorigin="anonymous" alt="${this.getAttribute('name')}-pic"/>
         </div>
         <div class="card-body">
           <div class="rating">Rating: <slot name="rating">-</slot></div>

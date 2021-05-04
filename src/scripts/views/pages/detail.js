@@ -28,8 +28,9 @@ const renderReviewTemplate = (reviews) => reviews.map(
 
 const renderDetailTemplate = (restaurant) => `
   <div class="detail__image-container">
-    <img 
-      src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}" 
+    <img
+      class="lazyload"
+      data-src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}" 
       alt="${restaurant.name}"
       tabindex="0"
       crossorigin="anonymous"
@@ -60,6 +61,7 @@ const renderDetailTemplate = (restaurant) => `
 const Detail = {
   async render() {
     return `
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous"/>
       <div class="detail__container">
       </div>
     `;

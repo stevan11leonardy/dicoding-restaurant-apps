@@ -5,6 +5,7 @@ const CONFIG = {
   DATABASE_NAME: 'restaurant-catalogue-database',
   DATABASE_VERSION: 1,
   CACHE_NAME: 'RestaurantCatalogue-V1',
+  // CACHE_NAME: new Date().toISOString(),
 };
 
 export default CONFIG;
