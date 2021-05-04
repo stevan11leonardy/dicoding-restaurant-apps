@@ -11,6 +11,7 @@ import CONFIG from '../../globals/config';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import LoadingInitiator from '../../utils/loading-initator';
 import ReviewFormInitator from '../../utils/review-form-initiator';
+import FavouriteRestaurantIdb from '../../data/favourite-restaurant-idb';
 
 const renderMenuTemplate = (menus, type) => menus[type].map(
   (menu) => `<restaurant-menu-item slot="${type}" name="${menu.name}"></restaurant-menu-item>`,
@@ -107,6 +108,7 @@ const Detail = {
           city: restaurant.city,
           rating: restaurant.rating,
         },
+        favouriteRestauratIdb: FavouriteRestaurantIdb,
       });
     }
   },
