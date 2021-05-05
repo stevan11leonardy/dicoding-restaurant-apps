@@ -23,8 +23,7 @@ class RestaurantMenuItem extends HTMLElement {
         ${this.getAttribute('name')}
       </li>
     `;
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = restaurantMenuItemTemplate;
+    this.innerHTML = restaurantMenuItemTemplate;
   }
 }
 
