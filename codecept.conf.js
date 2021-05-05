@@ -9,10 +9,27 @@ exports.config = {
   tests: 'e2e/**/*.spec.js',
   output: 'e2e/outputs',
   helpers: {
-    Puppeteer: {
+    // Puppeteer: {
+    //   url: 'http://localhost:8080',
+    //   show: true,
+    //   windowSize: '1200x900',
+    // },
+    // wdio: {
+    //   enabled: true,
+    //   services: ['selenium-standalone'],
+    // },
+    WebDriver: {
       url: 'http://localhost:8080',
-      show: true,
-      windowSize: '1200x900',
+      browser: 'chrome',
+      host: '127.0.0.1',
+      port: 4444,
+      restart: false,
+      windowSize: '1920x1680',
+      desiredCapabilities: {
+        chromeOptions: {
+          args: ['--disable-gpu', '--no-sandbox'],
+        },
+      },
     },
   },
   include: {

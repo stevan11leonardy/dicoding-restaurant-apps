@@ -10,23 +10,24 @@ Scenario('showing empty liked restaurants', ({ I }) => {
   I.see('No restaurant exist');
 });
 
-// Scenario('liking one movie', async ({ I }) => {
-//   I.see('Tidak ada film untuk ditampilkan', '.movie-item__not__found');
+Scenario('liking one restaurant', async ({ I }) => {
+  I.see('No restaurant exist');
 
-//   I.amOnPage('/');
+  I.amOnPage('/');
 
-//   I.seeElement('.movie__title a');
+  I.seeElement({ shadow: ['restaurant-card', '.card', '.learn-more'] })
 
-//   const firstFilm = locate('.movie__title a').first();
-//   const firstFilmTitle = await I.grabTextFrom(firstFilm);
-//   I.click(firstFilm);
+  const firstRestaurantName = await I.grabTextFrom({ shadow: ['restaurant-card:nth-child(1)', '.card', '.card-body', '.title'] });
+  console.log(firstRestaurantName);
 
-//   I.seeElement('#likeButton');
-//   I.click('#likeButton');
+  I.click({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] });
 
-//   I.amOnPage('/#/like');
-//   I.seeElement('.movie-item');
-//   const likedFilmTitle = await I.grabTextFrom('.movie__title');
+  I.seeElement('.like-button');
+  I.click('.like-button');
 
-//   assert.strictEqual(firstFilmTitle, likedFilmTitle);
-// });
+  I.amOnPage('/#/favourite');
+  I.seeElement({ shadow: ['restaurant-card', '.card', '.learn-more'] })
+  const likedRestaurantName = await I.grabTextFrom({ shadow: ['restaurant-card:nth-child(1)', '.card', '.card-body', '.title'] })
+
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
+});
