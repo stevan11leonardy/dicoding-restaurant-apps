@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import FavouriteRestaurantIdb from '../../src/scripts/data/favourite-restaurant-idb';
 import LikeButtonInitiator from '../../src/scripts/utils/like-button-initiator';
 
