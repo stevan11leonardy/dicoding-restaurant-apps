@@ -1,12 +1,12 @@
 const assert = require('assert');
 
-Feature('Liking Resturants');
+Feature('Liking Restaurant');
 
 Before(({ I }) => {
   I.amOnPage('/#/favourite');
 });
 
-Scenario('showing empty liked restaurants', ({ I }) => {
+Scenario('showing empty liked restaurant', ({ I }) => {
   I.see('No restaurant exist');
 });
 
@@ -15,12 +15,15 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   I.amOnPage('/');
 
-  I.seeElement({ shadow: ['restaurant-card', '.card', '.learn-more'] })
+  I.seeElement('fetch-loading');
+
+  I.seeElement({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] })
 
   const firstRestaurantName = await I.grabTextFrom({ shadow: ['restaurant-card:nth-child(1)', '.card', '.card-body', '.title'] });
-  console.log(firstRestaurantName);
 
   I.click({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] });
+
+  I.seeElement('fetch-loading');
 
   I.seeElement('.like-button');
   I.click('.like-button');
