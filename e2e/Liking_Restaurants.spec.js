@@ -15,15 +15,11 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   I.amOnPage('/');
 
-  I.seeElement('fetch-loading');
-
   I.seeElement({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] })
 
   const firstRestaurantName = await I.grabTextFrom({ shadow: ['restaurant-card:nth-child(1)', '.card', '.card-body', '.title'] });
 
   I.click({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] });
-
-  I.seeElement('fetch-loading');
 
   I.seeElement('.like-button');
   I.click('.like-button');

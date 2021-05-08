@@ -16,8 +16,6 @@ Scenario('add review in a restaurant', async ({ I }) => {
 
   I.click({ shadow: ['restaurant-card:nth-child(2)', '.card', '.learn-more'] });
 
-  I.seeElement('fetch-loading');
-
   const restaurantName = await I.grabTextFrom('.detail__restaurant-name')
   assert.strictEqual(clickedRestaurantName, restaurantName);
 
@@ -28,8 +26,6 @@ Scenario('add review in a restaurant', async ({ I }) => {
 
   I.see('Add Review', '.add-review-button');
   I.click('.add-review-button');
-
-  I.seeElement('fetch-loading');
 
   I.seeInPopup('success to add review');
   I.acceptPopup();

@@ -14,8 +14,6 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.seeElement({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] })
   I.click({ shadow: ['restaurant-card:nth-child(1)', '.card', '.learn-more'] });
 
-  I.seeElement('fetch-loading');
-
   I.seeElement('.liked-button');
   I.click('.liked-button');
 
